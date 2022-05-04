@@ -41,6 +41,9 @@ func StaticServer(w http.ResponseWriter, req *http.Request) {
 	w.Header().Set("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE")
 	w.Header().Set("Access-Control-Allow-Headers", "Accept, Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization")
 
+	// 打印请求路径
+	fmt.Println(req.URL.Path)
+
 	if req.URL.Path != "/" {
 		staticHandler.ServeHTTP(w, req)
 		return
